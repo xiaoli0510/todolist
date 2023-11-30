@@ -1,10 +1,13 @@
 <script setup lang="ts">
- import Header from '../components/Header.vue'
+ import TodoHeader from '../components/TodoList/TodoHeader.vue'
+ import TodoContent from '../components/TodoList/TodoContent.vue'
+
 </script>
 
 <template>
     <main>
-        <Header/>
+        <TodoHeader/>
+        <TodoContent/>
         这是一个todolist
     </main>
 </template>
