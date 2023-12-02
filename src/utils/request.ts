@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //创建axios实例
-const instance = axios.create({
+const request = axios.create({
   baseURL:'/api',
   timeout: 10000,
   headers: {
@@ -10,7 +10,7 @@ const instance = axios.create({
 }); 
 
 //添加请求拦截器
-instance.interceptors.request.use(
+request.interceptors.request.use(
   (config) => {
     return config;
   },
@@ -21,7 +21,7 @@ instance.interceptors.request.use(
 
 
 //添加响应拦截器
-instance.interceptors.response.use(
+request.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -30,4 +30,4 @@ instance.interceptors.response.use(
   }
 );
 
-export default instance;
+export default request;

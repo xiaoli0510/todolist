@@ -12,13 +12,20 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import type { TabsPaneContext } from 'element-plus'
+import { getTodoList } from '@/api/index'
 const checked1 = ref(true)
 const checked2 = ref(false)
 const activeName = ref('first')
 const filterList = ref([{
-    name:'list1',
-    id:1
+    name: 'list1',
+    id: 1
 }])
+const requests = async () => {
+    const res = await getTodoList()
+    console.log(res)
+}
+requests()
+
 
 const handleClick = (tab: TabsPaneContext, event: Event) => {
     console.log(tab, event)
@@ -31,8 +38,9 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
     font-size: 32px;
     font-weight: 600;
 }
-.list{
-    display:flex;
-    flex-direction:column;
+
+.list {
+    display: flex;
+    flex-direction: column;
 }
 </style>
