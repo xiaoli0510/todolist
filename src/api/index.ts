@@ -3,7 +3,7 @@ import request from '@/utils/request'
 
 export function getTodoList(){
     return request<GetTodoListModel[]>({
-        url: '/todoList',
+        url: '/upms/user/info',
         method: 'get',
         params: {
             page: 1,
