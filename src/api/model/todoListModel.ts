@@ -1,5 +1,6 @@
 export interface GetTodoListModel {
-    id:number,
-    title:string,
-    status:number
+    list:{
+        id:number,
+        name:string
+    }
 }

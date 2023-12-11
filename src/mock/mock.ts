@@ -1,8 +1,7 @@
 import Mock from "mockjs";
 import {type MockParams } from "./typing";
-import apis1 from "./apis1";
-import apis2 from "./apis2";
-const mocks = [...apis1, ...apis2];
+import apis from "./apis";
+const mocks = [...apis];
 //设置延时时间
 Mock.setup({
   timeout: "300",

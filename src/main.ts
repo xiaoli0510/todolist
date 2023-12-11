@@ -15,9 +15,8 @@ import router from './router'
 import { mockXHR } from "@/mock/mock";
 
 // 判断开发环境
-if(import.meta.env.NODE_ENV=="mock"){
+if(import.meta.env.MODE=="mock"){
 	mockXHR();
-	// mockXHR2();
 }
 
 

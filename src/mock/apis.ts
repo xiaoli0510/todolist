@@ -2,16 +2,16 @@ import Mock from "mockjs";
 export default [
   // GetUserInfo
   {
-    url: "/upms/user/info",
+    url: "/user/list",
     type: "get",
     response: () => {
-      return {
-        code: 200,
-        message: "成功",
-        data: {
-          name: "testName",
-        },
-      };
+      return Mock.mock({
+        "list|3":[
+        {
+        'id|+1':0,//得到随机id,
+        'name|+1':['吃饭','睡觉','打豆豆'] //得到随机标题
+      }]
+    })
     },
   },
   // GetToken
