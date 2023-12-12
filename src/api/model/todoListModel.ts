@@ -1,6 +1,7 @@
 export interface GetTodoListModel {
-    list:{
+    list:[{
         id:number,
-        name:string
-    }
-}
+        name:string,
+        checked:boolean
+    }]
+}       
