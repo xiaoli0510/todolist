@@ -8,7 +8,6 @@ import { ElMessage } from 'element-plus'
 
 const loading = ref(true);
 const allList = ref<GetTodoListModel[]>([])
-const todoHeader:any= ref<HTMLElement>();
 
 onMounted(async () => {
     try {
@@ -26,22 +25,11 @@ const getList = async () => {
     allList.value = res.data.list
 }
 
-//新增
-function handleAddTodo() {
-    if (todoHeader.value && !todoHeader.value['newTodoInput']) {
-        ElMessage({
-            message: '请先输入内容',
-            type: 'warning'
-        })
-        return
-    }
-   todoHeader.value.addTodo()
-} 
 </script>
 
 <template>
     <main>
-        <TodoHeader @add-todo="handleAddTodo" ref="todoHeader" :list="allList" v-if="!loading" />
+        <TodoHeader :list="allList" v-if="!loading" />
         <TodoContent :list="allList" v-if="!loading" />
     </main>
 </template>

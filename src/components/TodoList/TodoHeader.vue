@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { type GetTodoListModel } from '@/api/model/todoListModel'
+import { ElMessage } from 'element-plus';
 
 const newTodoInput = ref('');
 const allList = ref<GetTodoListModel[]>([])
@@ -9,8 +10,15 @@ const props = defineProps<{
 }>()
 allList.value = props.list;
 
-const addTodo = () => {
+const handleAddTodo = () => {
+  if (!newTodoInput.value) {
+    ElMessage({
+      message: '请输入内容',
+      type:'warning'
+    })
+  }
   const length = allList.value.length;
+
   allList.value.push({
     id: length,
     name: newTodoInput.value,
@@ -18,17 +26,13 @@ const addTodo = () => {
   })
 }
 
-defineExpose({
-  newTodoInput,
-  addTodo
-})
-
 </script>
 <template>
-  <el-input v-model="newTodoInput" placeholder="Please input">
+  <el-input v-model="newTodoInput" placeholder="请输入">
     <template #prepend>代办事项</template>
     <template #append class="add-button">
-      <el-button @click="$emit('add-todo')">新增</el-button>
+      <el-button @click="handleAddTodo">新增</el-button>
+      <!-- <el-button @click="$emit('add-todo')">新增</el-button> -->
     </template>
   </el-input>
 </template>
