@@ -4,9 +4,11 @@ import TodoContent from '../components/TodoList/TodoContent.vue'
 import { type GetTodoListModel } from '@/api/model/todoListModel'
 import { onMounted, ref } from 'vue';
 import { getTodoList } from '@/api/index'
+import { ElMessage } from 'element-plus'
 
 const loading = ref(true);
 const allList = ref<GetTodoListModel[]>([])
+const todoHeader:any= ref<HTMLElement>();
 
 onMounted(async () => {
     try {
@@ -26,15 +28,20 @@ const getList = async () => {
 
 //新增
 function handleAddTodo() {
-    console.log('点击了')
-
-}
-
+    if (todoHeader.value && !todoHeader.value['newTodoInput']) {
+        ElMessage({
+            message: '请先输入内容',
+            type: 'warning'
+        })
+        return
+    }
+   todoHeader.value.addTodo()
+} 
 </script>
 
 <template>
     <main>
-        <TodoHeader @add-todo="handleAddTodo" />
-        <TodoContent :list="allList" v-if="!loading"/>
+        <TodoHeader @add-todo="handleAddTodo" ref="todoHeader" :list="allList" v-if="!loading" />
+        <TodoContent :list="allList" v-if="!loading" />
     </main>
 </template>
