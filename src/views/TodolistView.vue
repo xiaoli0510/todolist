@@ -4,7 +4,6 @@ import TodoContent from '../components/TodoList/TodoContent.vue'
 import { type GetTodoListModel } from '@/api/model/todoListModel'
 import { onMounted, ref } from 'vue';
 import { getTodoList } from '@/api/index'
-import { ElMessage } from 'element-plus'
 
 const loading = ref(true);
 const allList = ref<GetTodoListModel[]>([])

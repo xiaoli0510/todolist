@@ -60,8 +60,7 @@ watch(filterList,(newValue:GetTodoListModel[])=>{
     if(newValue.length==0){
         checkAll.value=false
         isIndeterminate.value=false
-    }else{
-        console.log(newValue)
+    } else {
         checkAll.value=newValue.every(item=>item.checked)
         isIndeterminate.value=!checkAll.value&&newValue.some(item=>item.checked)
     }

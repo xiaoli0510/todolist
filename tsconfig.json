@@ -10,6 +10,8 @@
   ],
   "compilerOptions": {
     // ...
-    "types": ["element-plus/global","node"]
+    "baseUrl":".",
+    "types": ["element-plus/global","node"],
+    "paths": { "mockjs": ["node_modules/@types/mockjs"] }, "typeRoots": ["./node_modules/@types", "./types"] 
   }
 }

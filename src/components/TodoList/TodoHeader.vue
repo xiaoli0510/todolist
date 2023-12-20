@@ -28,11 +28,10 @@ const handleAddTodo = () => {
 
 </script>
 <template>
-  <el-input v-model="newTodoInput" placeholder="请输入">
+  <el-input v-model="newTodoInput" @keyup.enter="handleAddTodo" placeholder="请输入">
     <template #prepend>代办事项</template>
     <template #append class="add-button">
       <el-button @click="handleAddTodo">新增</el-button>
-      <!-- <el-button @click="$emit('add-todo')">新增</el-button> -->
     </template>
   </el-input>
 </template>

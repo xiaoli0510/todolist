@@ -8,9 +8,10 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
-    "serve:mock": "vite --mode mock"
+    "mock": "vite --mode mock"
   },
   "dependencies": {
+    "@types/mockjs": "^1.0.10",
     "axios": "^1.6.2",
     "element-plus": "^2.4.3",
     "pinia": "^2.1.7",
